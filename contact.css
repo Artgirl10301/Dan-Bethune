@@ -1,0 +1,151 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+.info-box {
+    position: fixed;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.615);
+    color: white;
+    border-radius: 8px 0 0 8px;
+}
+
+.info-box span {
+    writing-mode: vertical-rl;
+    transform: rotate(360deg);
+    margin: 10px 0;
+}
+.title {
+     padding: 7vh; 
+     min-height: 3vh; 
+    align-self: flex-start;
+  
+}
+
+.title h1 {
+    font-size: 4em;
+    color: black;
+    margin: 0;
+}
+
+.title h2 {
+    font-size: 4em;
+    color: black;
+    margin: 0;
+}
+
+.sheer-box {
+    background-color: rgba(0, 0, 0, 0.635);
+    width: 70%;
+    height: 5vh;
+    padding: 1vh 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.navbar {
+    padding: 1vh;
+    display: flex;
+    gap: 15vh;
+    justify-content: space-around;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 3vh;
+
+}
+
+.navbar a.active,
+.navbar a:hover {
+  border-bottom: 2px solid white;
+  /* Other styling for the active or hovered link */
+}
+
+
+.container {
+    background-color: rgba(112, 112, 112, 0.484);
+    background-position: center;
+    height: 200vh; 
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    position: relative; 
+}
+
+
+
+img:hover {
+    transform: scale(1.2); /* Adjust the scale factor as needed */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
+    transition: transform 0.2s;
+}
+
+
+
+.footer {
+    background-color: rgb(40, 40, 40);
+    padding: 7vh;
+    width:100%;
+    text-align: center;
+    color: white;
+    margin-top: auto;
+}
+
+/* Media Query for Responsive Design */
+@media screen and (max-width: 40vh) {
+    .sheer-box {
+        width: 20%;
+        height: inherit;
+        margin-bottom: 20vh;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1vh;
+    }
+    
+}
+.center-message {
+    font-family: 'Indie Flower';
+    font-size: 1em;
+    color: black;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-top: 45vh;
+    padding-left: 30vh;
+    transform: translateY(50%); 
+    position: relative;
+}
+
+.center-message a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ebb1b1;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 1vh;
+    margin-top: 10px; 
+    position: relative;
+}

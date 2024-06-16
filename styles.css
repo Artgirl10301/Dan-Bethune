@@ -1,0 +1,239 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    /* background-image: url('Chrome Throated Cicada.jpg'); */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 98.5vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+}
+
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.title {
+     padding: 7vh; 
+    height: 100vh;
+    align-self: flex-start;
+  justify-content: space-around;
+}
+
+.title h1 {
+    font-size: 5em;
+    align-self: flex-start;
+    color: white;
+    margin: 0;
+}
+
+.sheer-box {
+    background-color: rgba(0, 0, 0, 0.635);
+    width: 50%;
+    height: 5vh;
+    padding: 1vh 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.navbar {
+    padding: 1vh;
+    display: flex;
+    gap: 15vh;
+    justify-content: space-around;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 3vh;
+
+}
+
+.navbar a.active,
+.navbar a:hover {
+  border-bottom: 2px solid white;
+  /* Other styling for the active or hovered link */
+}
+
+  
+.footer {
+    background-color: rgb(40, 40, 40);
+    padding: 13vh;
+    text-align: center;
+    color: white;
+    width: 98.5vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+}
+
+.slideshow-container {
+    max-height: 60vh;
+    overflow: hidden;
+    width: 98.5vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+}
+
+.slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.fade {
+    animation: fade 5s ease-in-out infinite;
+}
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0;
+        z-index: -1; 
+    }
+
+    10%, 90% {
+        opacity: 1;
+        z-index: 1; 
+    }
+}
+
+
+/* Media Query for Responsive Design */
+@media screen and (max-width: 768px) {
+    .sheer-box {
+        width: 20%;
+        height: inherit;
+        margin-bottom: 20vh;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1vh;
+    }
+    
+}
+
+.text-overlay {
+    position: absolute;
+    top: 70vh;
+    left: 130vh;
+    transform: translate(-70%, -70%);
+    text-align:right;
+    font-size: 8vh;
+    font-family:Arial, Helvetica, sans-serif;
+    color:rgb(255, 244, 240) ;
+    justify-content: space-around;
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    padding: 20px;
+  }
+  
+  .image-text {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .image {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .image img {
+    width: 30vh; /* Make the image responsive */
+    height: auto;
+    padding-left:  0vh; 
+    padding-right: 0vh;
+    padding-top: 10vh;
+    border: 10vh solid #011a35;
+    position: center;
+    border-radius: 50vh;
+    margin-left: 25vh; 
+    
+  }
+  
+  .text {
+    flex: 2;
+    font-size: 3.5vh;
+    padding-right: 30vh;
+    padding-left: 10vh;
+  }
+
+  .cv-section {
+    margin-top: 2vh;
+    text-align: left;
+    padding: 2vh 0; /* Adjust padding top and bottom as needed */
+    background-color: #ccc;
+    font-size: 2.5vh;
+    width: 98.5vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+}
+
+.cv-section .content-inner {
+    padding: 0 40px; /* Adjust padding left and right as needed */
+    box-sizing: border-box;
+}
+  
+  .cv-section a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ebb1b1; /* Adjust the background color as needed */
+    color: #fff;
+    text-decoration:none;
+    border:none; 
+  }
+  
+  .cv-section a:hover {
+    background-color: #000000; /* Adjust the hover color as needed */
+  }
+  .job {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  .job h3 {
+    margin-top: 0;
+  }
+  
+  .my-story {
+    width: 98.5vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
+
+  }
