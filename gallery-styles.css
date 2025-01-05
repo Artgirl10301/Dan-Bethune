@@ -67,27 +67,24 @@ body {
     flex-direction: column;
     align-items: flex-end;
     /* position: relative;  */
-}
+/* Gallery Container */
 .gallery-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 2vh;
+    column-count: 4; /* Number of masonry columns */
+    column-gap: 10px; /* Space between columns */
     padding: 3vh;
-    flex-grow: 1;
-
 }
 
-.gallery-image {
-    overflow: hidden;
-    position: relative;
+.gallery-container figure {
+    margin: 3;
+    break-inside: avoid; /* Prevent breaking items between columns */
+    background: transparent;
 }
 
-.gallery-image img {
+.gallery-container img {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 8px;
-  
+    height: auto;
+    border-radius: 8px; /* Optional: Rounded corners */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 img:hover {
