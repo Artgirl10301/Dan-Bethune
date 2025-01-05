@@ -9,6 +9,8 @@ function showSlides() {
         'Acquisition of Inevitability v1 sm.jpg',
         'IMG_0753.JPG',
         'Buttunssm.jpg',
+        'The Hermit (main).jpg',
+        'venus.jpg',
         // Add more images as needed
     ];
 
