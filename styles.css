@@ -5,7 +5,6 @@ body {
 }
 
 .container {
-    /* background-image: url('Chrome Throated Cicada.jpg'); */
     background-size: cover;
     background-position: center;
     height: 100vh;
@@ -22,16 +21,19 @@ body {
 
 .header {
     width: 100%;
+    padding: 20px 40px; /* CLEAN TOP SPACING */
     display: flex;
-    justify-content: space-between;
-    padding: 20px;
+    justify-content: space-between; /* TITLE LEFT, NAV RIGHT */
+    align-items: center;
+    position: relative;
+    z-index: 2;
 }
 
 .title {
-     padding: 7vh; 
+    padding: 7vh;
     height: 100vh;
     align-self: flex-start;
-  justify-content: space-around;
+    justify-content: space-around;
 }
 
 .title h1 {
@@ -41,32 +43,35 @@ body {
     margin: 0;
 }
 
+/* ⭐ CLEAN NAV BAR */
 .sheer-box {
     background-color: rgba(0, 0, 0, 0.6);
-    padding: 10px 20px;
+    padding: 8px 16px;        /* SMALLER, CLEANER */
     border-radius: 6px;
     display: flex;
     align-items: center;
+    width: auto;              /* NO MORE 50% WIDTH */
+    height: auto;             /* NO FIXED HEIGHT */
 }
 
 .navbar {
     display: flex;
-    gap: 30px; /* Standard spacing */
+    gap: 24px;                /* NORMAL SPACING */
 }
 
 .navbar a {
     color: white;
     text-decoration: none;
-    font-size: 18px; /* Standard readable size */
+    font-size: 18px;          /* NORMAL SIZE */
+    font-weight: 500;
 }
 
 .navbar a.active,
 .navbar a:hover {
-  border-bottom: 2px solid white;
-  /* Other styling for the active or hovered link */
+    border-bottom: 2px solid white;
 }
 
-  
+/* FOOTER */
 .footer {
     background-color: rgb(40, 40, 40);
     padding: 13vh;
@@ -80,6 +85,7 @@ body {
     box-sizing: border-box;
 }
 
+/* SLIDESHOW */
 .slideshow-container {
     max-height: 60vh;
     overflow: hidden;
@@ -116,21 +122,33 @@ body {
     }
 }
 
-
-/* Media Query for Responsive Design */
+/* MOBILE FIXES */
 @media screen and (max-width: 768px) {
-    .sheer-box {
-        width: 20%;
-        height: inherit;
-        margin-bottom: 20vh;
+
+    /* ⭐ CLEAN MOBILE NAV BAR */
+    .header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
     }
 
     .navbar {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 1vh;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
     }
-    
+
+    .navbar a {
+        font-size: 16px;
+    }
+
+    /* REMOVE OLD BROKEN MOBILE NAV RULES */
+    /* (These caused the giant nav bar) */
+    /* .sheer-box {
+        width: 20%;
+        height: inherit;
+        margin-bottom: 20vh;
+    } */
 }
 
 .text-overlay {
@@ -141,52 +159,52 @@ body {
     text-align:right;
     font-size: 8vh;
     font-family:Arial, Helvetica, sans-serif;
-    color:rgb(255, 244, 240) ;
+    color:rgb(255, 244, 240);
     justify-content: space-around;
 }
+
 .content {
     display: flex;
     flex-direction: column;
     align-items: left;
     padding: 20px;
-  }
-  
-  .image-text {
+}
+
+.image-text {
     display: flex;
     flex-direction: row;
     align-items: center;
     margin-bottom: 20px;
-  }
-  
-  .image {
+}
+
+.image {
     flex: 1;
     margin-right: 20px;
-  }
-  
-  .image img {
-    width: 30vh; /* Make the image responsive */
+}
+
+.image img {
+    width: 30vh;
     height: auto;
-    padding-left:  0vh; 
+    padding-left: 0vh;
     padding-right: 0vh;
     padding-top: 10vh;
     border: 10vh solid #011a35;
     position: center;
     border-radius: 50vh;
-    margin-left: 25vh; 
-    
-  }
-  
-  .text {
+    margin-left: 25vh;
+}
+
+.text {
     flex: 2;
     font-size: 3.5vh;
     padding-right: 30vh;
     padding-left: 10vh;
-  }
+}
 
-  .cv-section {
+.cv-section {
     margin-top: 2vh;
     text-align: left;
-    padding: 2vh 0; /* Adjust padding top and bottom as needed */
+    padding: 2vh 0;
     background-color: #ccc;
     font-size: 2.5vh;
     width: 98.5vw;
@@ -198,38 +216,38 @@ body {
 }
 
 .cv-section .content-inner {
-    padding: 0 40px; /* Adjust padding left and right as needed */
+    padding: 0 40px;
     box-sizing: border-box;
 }
-  
-  .cv-section a {
+
+.cv-section a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #ebb1b1; /* Adjust the background color as needed */
+    background-color: #ebb1b1;
     color: #fff;
     text-decoration:none;
     border:none; 
-  }
-  
-  .cv-section a:hover {
-    background-color: #000000; /* Adjust the hover color as needed */
-  }
-  .job {
+}
+
+.cv-section a:hover {
+    background-color: #000000;
+}
+
+.job {
     margin-bottom: 20px;
     border-bottom: 1px solid #ccc;
     padding-bottom: 10px;
-  }
-  
-  .job h3 {
+}
+
+.job h3 {
     margin-top: 0;
-  }
-  
-  .my-story {
+}
+
+.my-story {
     width: 98.5vw;
     position: relative;
     left: 50%;
     right: 50%;
     transform: translateX(-50%);
     box-sizing: border-box;
-
-  }
+}
