@@ -1,177 +1,239 @@
-/* GLOBAL */
 body {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    color: #111;
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
+.container {
+    /* background-image: url('Chrome Throated Cicada.jpg'); */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 98.5vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
 }
 
-/* HEADER */
 .header {
     width: 100%;
-    padding: 2rem 3rem;
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    padding: 20px;
+}
+
+.title {
+     padding: 7vh; 
+    height: 100vh;
+    align-self: flex-start;
+  justify-content: space-around;
 }
 
 .title h1 {
-    font-size: 3.5rem;
+    font-size: 5em;
+    align-self: flex-start;
+    color: white;
     margin: 0;
 }
 
-.title-black { color: black; }
-.title-white { color: white; }
-
-/* NAVBAR */
-.navbar {
+.sheer-box {
+    background-color: rgba(0, 0, 0, 0.635);
+    width: 50%;
+    height: 5vh;
+    padding: 1vh 0;
     display: flex;
-    gap: 2rem;
+    justify-content: space-around;
+}
+
+.navbar {
+    padding: 1vh;
+    display: flex;
+    gap: 15vh;
+    justify-content: space-around;
 }
 
 .navbar a {
     color: white;
     text-decoration: none;
-    font-size: 1.2rem;
-    padding-bottom: 0.2rem;
+    font-size: 3vh;
+
 }
 
-.navbar a:hover,
-.navbar a.active {
-    border-bottom: 2px solid white;
+.navbar a.active,
+.navbar a:hover {
+  border-bottom: 2px solid white;
+  /* Other styling for the active or hovered link */
 }
 
-/* SLIDESHOW SECTION */
-.slideshow-section {
+  
+.footer {
+    background-color: rgb(40, 40, 40);
+    padding: 13vh;
+    text-align: center;
+    color: white;
+    width: 98.5vw;
     position: relative;
-    width: 100%;
-    overflow: hidden;
-    background: #000;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
 }
 
 .slideshow-container {
-    width: 100%;
-    height: 60vh;
+    max-height: 60vh;
+    overflow: hidden;
+    width: 98.5vw;
     position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
 }
 
 .slide {
+    display: none;
+    width: 100%;
+    height: 100%;
     position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 1.2s ease-in-out;
+    top: 0;
+    left: 0;
+}
+
+.fade {
+    animation: fade 5s ease-in-out infinite;
+}
+
+@keyframes fade {
+    0%, 100% {
+        opacity: 0;
+        z-index: -1; 
+    }
+
+    10%, 90% {
+        opacity: 1;
+        z-index: 1; 
+    }
+}
+
+
+/* Media Query for Responsive Design */
+@media screen and (max-width: 768px) {
+    .sheer-box {
+        width: 20%;
+        height: inherit;
+        margin-bottom: 20vh;
+    }
+
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 1vh;
+    }
+    
 }
 
 .text-overlay {
     position: absolute;
-    bottom: 2rem;
-    right: 2rem;
-    font-size: 1.8rem;
-    color: #fff4f0;
-    text-align: right;
-    max-width: 40%;
+    top: 70vh;
+    left: 130vh;
+    transform: translate(-70%, -70%);
+    text-align:right;
+    font-size: 8vh;
+    font-family:Arial, Helvetica, sans-serif;
+    color:rgb(255, 244, 240) ;
+    justify-content: space-around;
 }
-
-/* MY STORY SECTION */
 .content {
-    padding: 4rem 2rem;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.image-text {
     display: flex;
-    gap: 2rem;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: left;
+    padding: 20px;
+  }
+  
+  .image-text {
+    display: flex;
+    flex-direction: row;
     align-items: center;
-}
-
-.image img {
-    width: 250px;
-    border: 12px solid #011a35;
-    border-radius: 50%;
-}
-
-.text {
+    margin-bottom: 20px;
+  }
+  
+  .image {
     flex: 1;
-    font-size: 1.2rem;
+    margin-right: 20px;
+  }
+  
+  .image img {
+    width: 30vh; /* Make the image responsive */
+    height: auto;
+    padding-left:  0vh; 
+    padding-right: 0vh;
+    padding-top: 10vh;
+    border: 10vh solid #011a35;
+    position: center;
+    border-radius: 50vh;
+    margin-left: 25vh; 
+    
+  }
+  
+  .text {
+    flex: 2;
+    font-size: 3.5vh;
+    padding-right: 30vh;
+    padding-left: 10vh;
+  }
+
+  .cv-section {
+    margin-top: 2vh;
+    text-align: left;
+    padding: 2vh 0; /* Adjust padding top and bottom as needed */
+    background-color: #ccc;
+    font-size: 2.5vh;
+    width: 98.5vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
 }
 
-.accent {
-    color: #ebb1b1;
+.cv-section .content-inner {
+    padding: 0 40px; /* Adjust padding left and right as needed */
+    box-sizing: border-box;
 }
-
-/* CV SECTION */
-.cv-section {
-    background: #ccc;
-    padding: 3rem 2rem;
-    margin-top: 3rem;
-    border-radius: 8px;
-}
-
-.cv-section a {
+  
+  .cv-section a {
     display: inline-block;
-    padding: 0.6rem 1.2rem;
-    background: #ebb1b1;
-    color: white;
-    text-decoration: none;
-    border-radius: 4px;
-    margin-top: 1rem;
-}
+    padding: 10px 20px;
+    background-color: #ebb1b1; /* Adjust the background color as needed */
+    color: #fff;
+    text-decoration:none;
+    border:none; 
+  }
+  
+  .cv-section a:hover {
+    background-color: #000000; /* Adjust the hover color as needed */
+  }
+  .job {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  .job h3 {
+    margin-top: 0;
+  }
+  
+  .my-story {
+    width: 98.5vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    transform: translateX(-50%);
+    box-sizing: border-box;
 
-.cv-section a:hover {
-    background: black;
-}
-
-.job {
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid #999;
-}
-
-/* FOOTER */
-.footer {
-    background: #282828;
-    color: white;
-    text-align: center;
-    padding: 3rem;
-}
-
-/* MOBILE */
-@media (max-width: 768px) {
-
-    .header {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-    }
-
-    .navbar {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 1rem;
-    }
-
-    .text-overlay {
-        position: static;
-        text-align: center;
-        margin-top: 1rem;
-        max-width: 100%;
-        font-size: 1.4rem;
-    }
-
-    .image-text {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .image img {
-        margin: auto;
-    }
-}
+  }
