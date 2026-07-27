@@ -1,7 +1,4 @@
-/* ------------------------------
-   GLOBAL
------------------------------- */
-
+/* GLOBAL */
 body {
     margin: 0;
     padding: 0;
@@ -15,10 +12,7 @@ img {
     display: block;
 }
 
-/* ------------------------------
-   HEADER
------------------------------- */
-
+/* HEADER */
 .header {
     width: 100%;
     padding: 2rem 3rem;
@@ -35,10 +29,7 @@ img {
 .title-black { color: black; }
 .title-white { color: white; }
 
-/* ------------------------------
-   NAVBAR
------------------------------- */
-
+/* NAVBAR */
 .navbar {
     display: flex;
     gap: 2rem;
@@ -56,35 +47,26 @@ img {
     border-bottom: 2px solid white;
 }
 
-/* ------------------------------
-   SLIDESHOW
------------------------------- */
+/* SLIDESHOW SECTION */
+.slideshow-section {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    background: #000;
+}
 
 .slideshow-container {
     width: 100%;
     height: 60vh;
-    overflow: hidden;
     position: relative;
 }
 
 .slide {
     position: absolute;
     inset: 0;
-    display: none;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
 }
-
-.fade {
-    animation: fade 6s ease-in-out infinite;
-}
-
-@keyframes fade {
-    0%, 100% { opacity: 0; }
-    10%, 90% { opacity: 1; }
-}
-
-/* ------------------------------
-   QUOTE OVERLAY
------------------------------- */
 
 .text-overlay {
     position: absolute;
@@ -96,10 +78,7 @@ img {
     max-width: 40%;
 }
 
-/* ------------------------------
-   MY STORY SECTION
------------------------------- */
-
+/* MY STORY SECTION */
 .content {
     padding: 4rem 2rem;
     max-width: 1200px;
@@ -128,19 +107,12 @@ img {
     color: #ebb1b1;
 }
 
-/* ------------------------------
-   CV SECTION
------------------------------- */
-
+/* CV SECTION */
 .cv-section {
     background: #ccc;
     padding: 3rem 2rem;
     margin-top: 3rem;
     border-radius: 8px;
-}
-
-.cv-section h1 {
-    margin-top: 0;
 }
 
 .cv-section a {
@@ -163,10 +135,7 @@ img {
     border-bottom: 1px solid #999;
 }
 
-/* ------------------------------
-   FOOTER
------------------------------- */
-
+/* FOOTER */
 .footer {
     background: #282828;
     color: white;
@@ -174,10 +143,7 @@ img {
     padding: 3rem;
 }
 
-/* ------------------------------
-   MOBILE RESPONSIVE
------------------------------- */
-
+/* MOBILE */
 @media (max-width: 768px) {
 
     .header {
@@ -207,9 +173,5 @@ img {
 
     .image img {
         margin: auto;
-    }
-
-    .text {
-        padding: 0;
     }
 }
