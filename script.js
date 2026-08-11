@@ -1,46 +1,40 @@
-let slideIndex = 0;
-showSlides();
+// ---------------------------------------------
+// SLIDESHOW
+// Reads slides directly from the DOM instead of a hardcoded
+// image list, so it can never fall out of sync with the HTML.
+// Crossfade is handled purely by toggling the .is-active class;
+// CSS transitions do the actual fading (see styles.css).
+// ---------------------------------------------
+(function () {
+  const slides = document.querySelectorAll('.slide');
+  if (!slides.length) return;
 
-function showSlides() {
-    const images = [
-        'Chrome Throated Cicada.jpg',
-        'I LIke The Way The Lines Run.jpg',
-        'Something In Between my toes4w8d3t.jpg',
-        'Acquisition of Inevitability v1 sm.jpg',
-        'IMG_0753.JPG',
-        'The Hermit (main).jpg',
-        'venus.jpg',
-        // Add more images as needed
-    ];
+  let currentIndex = 0;
+  slides[0].classList.add('is-active');
 
-    slideIndex = (slideIndex + 1) % images.length;
+  const SLIDE_INTERVAL = 6000; // ms
 
-    const container = document.querySelector('.container');
-    container.style.backgroundImage = `url('${images[slideIndex]}')`;
+  function nextSlide() {
+    slides[currentIndex].classList.remove('is-active');
+    currentIndex = (currentIndex + 1) % slides.length;
+    slides[currentIndex].classList.add('is-active');
+  }
 
-    const slides = document.querySelectorAll('.slide');
-    slides.forEach((slide, index) => {
-        if (index === slideIndex) {
-            slide.style.opacity = 1;
-            slide.style.zIndex = 1;
-        } else {
-            slide.style.opacity = 0;
-            slide.style.zIndex = -1;
-        }
-    });
+  setInterval(nextSlide, SLIDE_INTERVAL);
+})();
 
-    setTimeout(showSlides, 6000); // Change image every 6 seconds
-}
-document.addEventListener("DOMContentLoaded", function () {
-    // Get the current path
-    const path = window.location.pathname;
-  
-    // Get the link corresponding to the current page
-    const link = document.querySelector(`.navbar a[href='${path}']`);
-  
-    // Add the 'active' class to the current link
-    if (link) {
-        link.classList.add("active");
+// ---------------------------------------------
+// ACTIVE NAV LINK
+// Highlights the nav link matching the current page path.
+// ---------------------------------------------
+document.addEventListener('DOMContentLoaded', function () {
+  const path = window.location.pathname;
+  const currentPage = path.substring(path.lastIndexOf('/') + 1) || 'index.html';
+
+  document.querySelectorAll('.navbar a').forEach((link) => {
+    const linkPage = link.getAttribute('href');
+    if (linkPage === currentPage || linkPage === path) {
+      link.classList.add('active');
     }
   });
-  
+});
