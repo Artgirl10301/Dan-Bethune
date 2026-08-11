@@ -1,194 +1,202 @@
+/* -------------------------------------------------
+   RESET / BASE
+------------------------------------------------- */
+* {
+  box-sizing: border-box;
+}
 
 body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
 }
 
-
-.header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding: 20px;
+a {
+  color: inherit;
 }
 
-.title {
-     padding: 7vh; 
-     min-height: 3vh; 
-    align-self: flex-start;
-  
+/* -------------------------------------------------
+   PAGE / HEADER  (shared design language with the
+   other pages: site-title, nav-wrapper, navbar)
+------------------------------------------------- */
+.page {
+  background-color: rgba(112, 112, 112, 0.25);
+  display: flex;
+  flex-direction: column;
 }
 
-.title h1 {
-    font-size: 4em;
-    color: black;
-    margin: 0;
+.page-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1.5rem 2rem;
 }
 
-.title h2 {
-    font-size: 4em;
-    color: black;
-    margin: 0;
+.site-title {
+  font-size: clamp(2rem, 6vw, 4rem);
+  margin: 0;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
 }
 
-.sheer-box {
-    background-color: rgba(0, 0, 0, 0.635);
-    width: 50%;
-    height: 5vh;
-    padding: 1vh 0;
-    display: flex;
-    justify-content: space-around;
+.dark { color: #111; }
+.light { color: #fff; }
+
+.nav-wrapper {
+  background-color: rgba(0, 0, 0, 0.635);
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
 }
 
 .navbar {
-    padding: 1vh;
-    display: flex;
-    gap: 15vh;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
 .navbar a {
-    color: white;
-    text-decoration: none;
-    font-size: 3vh;
+  color: white;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  padding-bottom: 2px;
+  border-bottom: 2px solid transparent;
 }
 
 .navbar a.active,
 .navbar a:hover {
-  border-bottom: 1.5px solid white;
-  /* Other styling for the active or hovered link */
+  border-bottom-color: white;
 }
 
-.container {
-    background-color: rgba(112, 112, 112, 0.484);
-    background-position: center;
-    min-height: 30vh; 
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    /* position: relative;  */
-}
-/* Gallery Container */
+/* -------------------------------------------------
+   GALLERY (Pinterest-style, self-adjusting masonry)
+
+   column-width is a *target* width — the browser
+   fits as many columns as will comfortably fit at
+   that width and reflows automatically at any screen
+   size. No media-query breakpoints needed for this
+   part; it scales continuously like Pinterest does.
+------------------------------------------------- */
 .gallery-container {
-    column-count: 4; /* Number of masonry columns */
-    column-gap: 10px; /* Space between columns */
-    padding: 3vh;
+  column-width: 260px;
+  column-gap: 12px;
+  padding: 1.5rem;
 }
 
 .gallery-container figure {
-    margin: 3;
-    break-inside: avoid; /* Prevent breaking items between columns */
-    background: transparent;
+  margin: 0 0 12px;
+  break-inside: avoid;
+  background: transparent;
 }
 
 .gallery-container img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px; /* Optional: Rounded corners */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.11);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
-
-
-img:hover {
-    transform: scale(1.2); /* Adjust the scale factor as needed */
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
-    transition: transform 0.2s;
+/* Only scale on hover — the old rule scaled every image
+   by default and made the hover effect double up. */
+.gallery-container img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.24);
 }
 
-img {
-    max-width: 100%;
-    height: auto;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.11);
-    transition: transform 0.2s;
-    transform: scale(1.1);
-    cursor: url('sheepPicc.png'),pointer;
-}
-
-
-.footer {
-    background-color: rgb(40, 40, 40);
-    padding: 7vh;
-    width: 100%;
-    text-align: center;
-    color: white;
-}
-
-/* Media Query for Responsive Design */
-@media screen and (max-width: 768px) {
-    .sheer-box {
-        width: 20%;
-        height: inherit;
-        margin-bottom: 20vh;
-    }
-
-    .navbar {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 1vh;
-    }
-    
-}
-
-.gallery figcaption {
-    display: none;
-    text-align: center;
-    margin-top: 10px;
-}
-
-
-.lightbox-caption {
-    padding: 20px;
-    text-align: left;
-    background-color: #f8f8f8;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-top: 10px;
-    color: #333;
-    line-height: 1.4;
-}
-
-
-
+/* -------------------------------------------------
+   LIGHTBOX
+------------------------------------------------- */
 #lightbox {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.7);
-    justify-content: center;
-    align-items: center;
-    overflow-y: auto; 
-    box-sizing: border-box;
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+  overflow-y: auto;
+  box-sizing: border-box;
+  z-index: 10;
 }
 
 #lightbox-content {
-    max-width: 90%;
-    max-height: 90%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow: hidden;
-    transition: transform 0.3s ease;
-} 
+  max-width: 90%;
+  max-height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
 
- #lightbox-img {
-    max-width: 100%;
-    max-height: 60vh; 
-    margin-bottom: 1vh; 
+#lightbox-img {
+  max-width: 100%;
+  max-height: 70vh;
+  max-height: 70dvh;
+  margin-bottom: 1rem;
 }
 
 #lightbox-caption-container {
-    color: #fff;
-    text-align: center;
+  color: #fff;
+  text-align: center;
+  padding: 0 1rem;
 }
+
 .close-btn {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    font-size: 30px;
-    color: #fff;
-    cursor: pointer;
+  position: fixed;
+  top: 15px;
+  right: 20px;
+  font-size: 2rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 11;
+}
+
+/* -------------------------------------------------
+   FOOTER
+------------------------------------------------- */
+.footer {
+  background-color: rgb(40, 40, 40);
+  padding: 2rem 1.5rem;
+  width: 100%;
+  text-align: center;
+  color: white;
+}
+
+.footer p {
+  margin: 0;
+}
+
+/* -------------------------------------------------
+   RESPONSIVE TWEAKS
+   (masonry itself is fluid; these just tighten
+   spacing and the header at small sizes)
+------------------------------------------------- */
+@media screen and (max-width: 480px) {
+  .page-top {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1rem 1.25rem;
+  }
+
+  .navbar {
+    gap: 1rem;
+  }
+
+  .navbar a {
+    font-size: 0.9rem;
+  }
+
+  .gallery-container {
+    column-width: 140px;
+    column-gap: 8px;
+    padding: 1rem;
+  }
 }
