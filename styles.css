@@ -190,7 +190,7 @@ p {
 
 .about-photo img {
   width: clamp(140px, 40vw, 220px);
-  aspect-ratio: 3/ 4;
+  aspect-ratio: 6/ 8;
   object-fit: cover;
   border-radius: 50%;
   border: 10px solid #011a35;
