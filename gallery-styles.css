@@ -38,14 +38,14 @@ a {
 .site-title {
   font-size: clamp(2rem, 6vw, 4rem);
   margin: 0;
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
 .dark { color: #111; }
 .light { color: #fff; }
 
 .nav-wrapper {
-  background-color: rgba(0, 0, 0, 0.635);
+  background-color: rgba(0, 0, 0, 0.6);
   border-radius: 6px;
   padding: 0.5rem 1rem;
 }
@@ -84,12 +84,12 @@ a {
 ------------------------------------------------- */
 .gallery-container {
   column-width: 260px;
-  column-gap: 12px;
+  column-gap: 16px;
   padding: 1.5rem;
 }
 
 .gallery-container figure {
-  margin: 0 0 12px;
+  margin: 0 0 20px;
   break-inside: avoid;
   background: transparent;
 }
@@ -196,7 +196,11 @@ a {
 
   .gallery-container {
     column-width: 140px;
-    column-gap: 8px;
+    column-gap: 12px;
     padding: 1rem;
+  }
+
+  .gallery-container figure {
+    margin-bottom: 14px;
   }
 }
